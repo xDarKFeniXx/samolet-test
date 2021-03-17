@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {Route, Switch} from "react-router-dom";
 import './app.css';
+import {Layout} from "antd";
 import {ListPage} from "./pages/list-page";
 import {DetailPage} from "./pages/detail-page";
 import {IOrderInfo} from "./types/IOrderInfo";
 import {getData} from "./api";
-import {Layout} from "antd";
 import {ErrorCard} from "./components/error-card";
 
 
 export default function App() {
-    const [list, setList] = useState<IOrderInfo[]>([]); //решил не выносить ни в Context, ни в Redux т.к. всего два компонента
+    const [list, setList] = useState<IOrderInfo[]>([]);
+    //решил не выносить ни в Context, ни в Redux т.к. всего два компонента
+    //Если бы потребовалось делать какие-либо дополнительные запросы, я бы использовал Redux + Redux-Saga
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<null | string>(null)
     useEffect(() => {

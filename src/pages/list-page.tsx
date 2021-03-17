@@ -87,7 +87,7 @@ export const ListPage: React.FC<{ list: IOrderInfo[] , loading:boolean}> = ({lis
                 </Select>
             </div>
 
-            <List loading={loading}>
+            <List loading={loading}> {/*как вариант было использовать Table с встроенным методом сортировки по колоннам*/}
                 {showList}
             </List>
         </>
